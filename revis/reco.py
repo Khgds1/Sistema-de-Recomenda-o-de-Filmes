@@ -1,20 +1,49 @@
-from csv import reader
-#
-with open('ratings.csv', 'r', encoding='utf8') as read_obj:
-    csvreader = reader(read_obj)
-    usuarios = list(csvreader)
-#info - 0 = userId, 1 = movieId, 2 = rating, 3 = timestamp    
-def users(ind, pos):
-    print(usuarios[ind][pos])
-#
-with open('movies.csv', 'r', encoding="utf8") as read_obj:
-    csvreader = reader(read_obj)
-    filmes = list(csvreader)
-#info - 0 = movieId, 1 = title, 2 = genres    
-def movies(ind, pos):
-    print(filmes[ind][pos]) 
-#
+#from csv import reader
+import csv
+
+
+
+#Utilitarios
 def titulo(msg):
     print('-'*50)
     print(msg)
     print('-'*50)
+
+
+
+lcomp = []
+with open('ratings.csv', 'r', encoding="utf8") as file:
+    ndf = csv.reader(file)
+    for linha in ndf:
+        lcomp.append(linha)
+
+
+def busca(user, movie):
+    movieId = []
+    for i in range(len(user)):
+        userR = str(user[i])
+        userR = userR.replace("'", "")
+        userR = userR.replace("[", "")
+        userR = userR.replace("]", "")
+        if (userR == "8"):
+            index = i
+            movieId.append(movie[index])
+    return movieId
+
+userId = []
+movieId = []
+rating = []
+for linha in lcomp:
+    Separado = []
+    for separado in linha:
+        Separado.append(separado.split(','))
+    userId.append(Separado[0])
+    movieId.append(Separado[1])
+    rating.append(Separado[2])
+
+comb = busca(userId, movieId)
+print(comb)
+
+
+
+
