@@ -1,10 +1,18 @@
 import csv
 #
+#Importando Ratings.csv
 lcomp = []
 with open('ratings.csv', 'r', encoding="utf8") as file:
     ndf = csv.reader(file)
     for linha in ndf:
         lcomp.append(linha)
+#
+#Importando Movies.csv
+lcompM = []
+with open('movies.csv', 'r', encoding="utf8") as file:
+    ndf = csv.reader(file)
+    for linha in ndf:
+        lcompM.append(linha)    
 #
 #
 def busca(user, movie, rat):
@@ -21,6 +29,7 @@ def busca(user, movie, rat):
     return movieId
 #
 #
+#Dividindo Listas de ratings.csv     
 userId = []
 movieId = []
 rating = []
@@ -32,11 +41,22 @@ for linha in lcomp:
     movieId.append(Separado[1])
     rating.append(Separado[2])
 #
+#Dividindo Listas de movies.csv
+title = []
+genres = []
+for linha in lcompM:
+    Separado = []
+    for separado in linha:
+        Separado.append(separado.split(','))
+    title.append(Separado[1])
+    genres.append(Separado[2])
+#
+#
 comb = busca(userId, movieId, rating)
-print(comb)
+#print(comb)
 #
-#
-#def selectN()
+#comb2 = selectN(movieId, rating, bnotasd)
+#print(comb2)
 #
 #
 #Utilitarios
