@@ -13,5 +13,6 @@ mcomp = []
 with open('movies.csv', 'r', encoding='utf8') as file:
     ndf = csv.reader(file)
     for linha in ndf:
-        rcomp.append(linha)
-        
+        mcomp.append(linha)
+
+print(rcomp)
