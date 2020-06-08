@@ -1,9 +1,10 @@
-from revis import reco
-#
-reco.titulo('Seja Bem-vindo ao Revis, seu Recomedador de filmes')
-reco.busca('', '')
+#Importações
+from revies import recomendador
 
-#reco.titulo('...carregando resultado...')
-#reco.movies(0, 1)
-#reco.users(3, 1)
+#Entradas
+idUser = str(input('Informe a ID do usuário: '))
+idMovie = str(input('Informe a ID de um filmes: '))
 
+#Saídas
+print(idUser)
+print(idMovie)
